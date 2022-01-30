@@ -12,12 +12,7 @@ public class ActivatedStairs : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         cookieButt.ButtonPressed += OnButtonPressed;
-        cookieButt.ButtonPressed += OnButtonReleased;
-    }
-
-    void Start()
-    {
-        animator.Play("Activated");
+        cookieButt.ButtonReleased += OnButtonReleased;
     }
 
     void OnButtonPressed()
@@ -27,6 +22,6 @@ public class ActivatedStairs : MonoBehaviour
 
     void OnButtonReleased()
     {
-        animator.Play("Released");
+        animator.Play("Deactivated");
     }
 }
