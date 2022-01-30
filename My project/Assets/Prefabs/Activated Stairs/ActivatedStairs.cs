@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class ActivatedStairs : MonoBehaviour
 {
-    public CookieButt cookieButt;
+    public List<CookieButt> cookieButts;
 
     Animator animator;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
-        cookieButt.ButtonPressed += OnButtonPressed;
-        cookieButt.ButtonReleased += OnButtonReleased;
+
+        foreach (CookieButt cookieButt in cookieButts)
+        {
+            cookieButt.ButtonPressed += OnButtonPressed;
+            cookieButt.ButtonReleased += OnButtonReleased;
+        }
     }
 
     void OnButtonPressed()

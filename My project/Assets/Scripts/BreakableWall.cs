@@ -15,7 +15,7 @@ public class BreakableWall : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.name == "PlayerAbundance")
         {
             BreakWall();
         }
