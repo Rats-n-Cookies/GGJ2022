@@ -9,6 +9,9 @@ public class CookieButt : MonoBehaviour
     public delegate void OnButtonPressed();
     public event OnButtonPressed ButtonPressed;
 
+    public delegate void OnButtonReleased();
+    public event OnButtonReleased ButtonReleased;
+
     enum State { Normal, Pressed };
     State _state = State.Normal;
 
@@ -58,6 +61,7 @@ public class CookieButt : MonoBehaviour
         if (Activators.Contains(other.gameObject))
         {
             CurrentState = State.Pressed;
+            ButtonPressed();
         }
     }
 
@@ -66,6 +70,7 @@ public class CookieButt : MonoBehaviour
         if (Activators.Contains(other.gameObject))
         {
             CurrentState = State.Normal;
+            ButtonReleased();
         }
     }
 }
